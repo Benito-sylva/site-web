@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Délices d'Awa - Contact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        
+    </header>
+
+    <section class="contact">
+        <h1>Contactez-Nous</h1>
+        
+        <div class="contact-container">
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nom</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit">Envoyer</button>
+            </form>
+
+            <div class="contact-info">
+                <div class="info-item">
+                    <h3>Adresse</h3>
+                    <p>Rufisque Arafat 1</p>
+                </div>
+                
+                <div class="info-item">
+                    <h3>Téléphone</h3>
+                    <p>+221 77 947 82 90</p>
+                </div>
+                
+                <div class="info-item">
+                    <h3>Email</h3>
+                    <p>sylvadiompy@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        <!-- Dans la section "Contact" ou "Réservation" -->
+<div class="reservation-form">
+    <h2>Réservez votre table</h2>
+    <form id="reservation-form">
+      <div class="form-group">
+        <label for="name">Nom :</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="date">Date :</label>
+        <input type="date" id="date" name="date" required>
+      </div>
+      <div class="form-group">
+        <label for="time">Heure :</label>
+        <input type="time" id="time" name="time" required>
+      </div>
+      <div class="form-group">
+        <label for="guests">Nombre de personnes :</label>
+        <input type="number" id="guests" name="guests" required>
+      </div>
+      <button type="submit">Réserver</button>
+    </form>
+  </div>
+  
+  <script>
+    // Validation et envoi du formulaire de réservation
+    document.getElementById('reservation-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Empêche le rechargement de la page
+  
+      // Récupérer les valeurs du formulaire
+      var name = document.getElementById('name').value;
+      var date = document.getElementById('date').value;
+      var time = document.getElementById('time').value;
+      var guests = document.getElementById('guests').value;
+  
+      // Validation des champs
+      if (name.trim() === '' || date.trim() === '' || time.trim() === '' || guests.trim() === '') {
+        alert('Veuillez remplir tous les champs.');
+        return;
+      }
+  
+      // Envoyer les données du formulaire au serveur (par exemple, via une requête AJAX)
+      // ...
+  
+      // Afficher un message de confirmation
+      alert('Votre réservation a été enregistrée. Nous vous contacterons bientôt.');
+    });
+  </script>
+
+  <!-- Dans la section "Commande" -->
+<div class="order-section">
+    <h2>Passez votre commande</h2>
+    <div class="menu-items">
+      <!-- Affichage dynamique des plats du menu -->
+      <div class="menu-item">
+        <img src="plat1.jpg" alt="Plat 1">
+        <h3>Plat 1</h3>
+        <p>Description du plat 1</p>
+        <p class="price">2500 Fr</p>
+        <button class="add-to-cart" data-price="2500" data-name="Plat 1">Ajouter au panier</button>
+      </div>
+      <!-- Répétez pour tous les plats -->
+    </div>
+    <div class="cart">
+      <h3>Votre panier</h3>
+      <table id="cart-table">
+        <thead>
+          <tr>
+            <th>Plat</th>
+            <th>Quantité</th>
+            <th>Prix</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <p>Total : <span id="total-price">0 Fr</span></p>
+      <button id="checkout-btn">Passer la commande</button>
+    </div>
+  </div>
+  
+  <script>
+    // Logique de gestion du panier et du processus de commande
+    var cartItems = [];
+  
+    // Ajouter un plat au panier
+    document.querySelectorAll('.add-to-cart').forEach(function(button) {
+      button.addEventListener('click', function() {
+        var name = this.dataset.name;
+        var price = parseFloat(this.dataset.price);
+        addToCart(name, price, 1);
+      });
+    });
+  
+    // Afficher les éléments du panier
+    function addToCart(name, price, quantity) {
+      // Logique d'ajout d'un élément au panier
+      // ...
+  
+      // Mettre à jour l'affichage du panier
+      updateCartDisplay();
+    }
+  
+    // Mettre à jour l'affichage du panier
+    function updateCartDisplay() {
+      // Logique de mise à jour de l'affichage du panier
+      // ...
+    }
+  
+    // Processus de paiement
+    document.getElementById('checkout-btn').addEventListener('click', function() {
+      // Logique de paiement et d'envoi de la commande au serveur
+      // ...
+  
+      // Afficher un message de confirmation
+      alert('Votre commande a été passée avec succès. Merci !');
+    });
+  </script>
+    </section>
+
+    <footer>
+        
+    </footer>
+</body>
+</html>
